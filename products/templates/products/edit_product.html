@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Продукт -- {{ product.title }}{% endblock %}
+
+{% block header %}{{ product.title }}{% endblock %}
+
+
+{% block content %}
+
+<p>Запрошено методом {{ request.method }}</p>
+
+<p>Сырые данные с формы: {{raw_data}}</p>
+
+<!--<p>{{ python_path }}</p>-->
+
+<form method="post" action="">
+    {% csrf_token%}
+    <table  border="1">
+<!--        <tr>-->
+<!--            <td><label  for="title">Наименование</label></td>-->
+<!--            <td><input id="title" type="text" name="title"></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td><label for="quantity">Количество</label></td>-->
+<!--            <td><input id="quantity" type="text" name="quantity"></td>-->
+<!--        </tr>-->
+        {{ form }}
+
+
+    </table>
+    <input type="submit">
+</form>
+
+{% endblock %}
+
+

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}List groups{% endblock %}
+
+{% block header %}List groups{% endblock %}
+
+
+{% block content %}
+
+<table border="1">
+    <tr>
+        <th>Код</th>
+        <th>Наименование</th>   <!-- table header -->
+        <th>Скоропортящиеся</th>
+    </tr>
+    {% for t in all_groups %}
+    <tr>
+        <td>{{ t.code }}</td>
+        <td>{{ t.title }}</td>
+        <td>{{ t.skoro }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
+
+
+

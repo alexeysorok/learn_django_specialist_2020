@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Теги для {{ product.title }}{% endblock %}
+
+{% block header %}Теги для {{ product.title }}{% endblock %}
+
+
+{% block content %}
+
+<ul>
+    {% for t in product.tags.all %}
+    <li>{{ t.title }} &mdash; <a href="{% url 'products:delete_tag' product.pk t.pk %}">удалить</a></li>
+    {% endfor %}
+</ul>
+
+<form method="POST" >
+    {% csrf_token%}
+    {{ form.as_p }}
+    <input type="submit" value="Добавить"/>
+</form>
+
+{% endblock %}
+
+

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Продукт -- {{product.title}}{% endblock %}
+
+{% block header %}{{product.title}}{% endblock %}
+
+
+{% block content %}
+
+<table border="1">
+    <tr>
+        <th>Артикул</th>
+        <th>Наименование</th>               <!-- table header -->
+        <th>Количество</th>
+        <th>Группа</th>
+        <th>Теги</th>
+    </tr>
+
+    <tr>
+        <td>{{ product.article  }}</td>    <!-- Articles -->
+        <td>{{ product.title    }}</td>      <!-- Name     -->
+        <td>{{ product.quantity }}</td>   <!-- Count    -->
+        <td>{{ product.group.title }}</td>
+        <td>{{ tags }}</td>
+    </tr>
+
+</table>
+
+
+
+{% endblock %}
+
+

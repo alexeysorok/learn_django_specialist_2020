@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}List products{% endblock %}
+
+{% block header %}List products{% endblock %}
+
+
+{% block content %}
+
+<table border="1">
+    <tr>
+        <th>Articles</th>
+        <th>Name</th>               <!-- table header -->
+        <th>Count</th>
+<!--        <th>&nbsp;</th>-->
+    </tr>
+    {% for t in all_products %}
+    <tr>
+        <td>{{ t.article  }}</td>    <!-- Articles -->
+        <td>{{ t.title    }}</td>      <!-- Name     -->
+        <td>{{ t.quantity }}</td>   <!-- Count    -->
+        <td><a href="{% url 'products:tags' t.pk %}">теги</a></td>
+        <td><a href="{% url 'products:show' t.pk %}">просмотр</a></td>
+        <td><a href="{% url 'products:edit' t.pk %}">редактирование</a></td>
+        <td><a href="{% url 'products:delete' t.pk %}">удалить</a></td>
+        <td><a href="{% url 'products:app_picture' t.pk %}">добавить картинку</a></td>
+        <td>картинка</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p><a href="{% url 'products:create' %}">Новый товар</a></p>
+
+{% endblock %}
+
+
